@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sonai ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#160019,#65002e,#210020);
+  color:white;
+  font-family:Segoe UI,sans-serif;
+  text-align:center;
+  padding:20px 12px;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:480px;
+  margin:auto;
+  padding:25px 17px;
+  background:rgba(255,255,255,.09);
+  border:1px solid #ff8bc6;
+  border-radius:25px;
+  box-shadow:0 0 35px #ff1493;
+}
+
+h1{color:#ff9dcc;margin:15px 0}
+h2{color:#ff9dcc;margin:15px 0}
+
+.heart{
+  font-size:48px;
+  animation:beat 1s infinite;
+}
+
+@keyframes beat{
+  50%{transform:scale(1.2)}
+}
+
+.photo{
+  width:100%;
+  max-height:460px;
+  object-fit:cover;
+  object-position:center 35%;
+  border-radius:20px;
+  border:3px solid #ff9dcc;
+  margin:18px 0;
+}
+
+.love-text{
+  color:#ffd1e6;
+  line-height:1.8;
+  margin:15px 0;
+}
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin:25px 0;
+}
+
+.time{
+  background:#ffffff18;
+  border:1px solid #ff8bc6;
+  border-radius:12px;
+  padding:13px 3px;
+}
+
+.time span{
+  display:block;
+  color:#ff9dcc;
+  font-size:27px;
+  font-weight:bold;
+}
+
+.time small{font-size:11px}
+
+button{
+  background:linear-gradient(45deg,#ff1493,#ff69b4);
+  color:white;
+  padding:13px 22px;
+  border:0;
+  border-radius:30px;
+  margin:12px 5px;
+  font-size:15px;
+  cursor:pointer;
+}
+
+#birthday{display:none}
+
+#surprise,#letter{
+  display:none;
+  background:#ffffff12;
+  padding:20px;
+  border:1px solid #ff91c8;
+  border-radius:18px;
+  margin-top:20px;
+  line-height:1.9;
+  color:#ffe0ef;
+}
+
+#letter{
+  animation:appear 1s ease;
+}
+
+@keyframes appear{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.cake{
+  font-size:75px;
+  animation:cake 1.5s infinite alternate;
+}
+
+@keyframes cake{
+  to{transform:translateY(-10px) scale(1.05)}
+}
+
+#fireworks{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:5;
+}
+
+.floating{
+  position:fixed;
+  bottom:-40px;
+  pointer-events:none;
+  animation:float 7s linear forwards;
+  z-index:4;
+}
+
+@keyframes float{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+.footer{
+  color:#ffb5dc;
+  margin-top:25px;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<div class="container">
+
+<div class="heart">❤️</div>
+
+<h1>For My Beautiful Sonai</h1>
+
+<p class="love-text">
+A special surprise is waiting for you! 💕
+</p>
+
+<img src="couple.jpg" class="photo" alt="Our Couple Photo">
+
+<div id="countdownArea">
+
+<h3>Sonai's Birthday Countdown 🎂</h3>
+
+<div class="countdown">
+
+<div class="time">
+<span id="days">00</span>
+<small>Days</small>
+</div>
+
+<div class="time">
+<span id="hours">00</span>
+<small>Hours</small>
+</div>
+
+<div class="time">
+<span id="minutes">00</span>
+<small>Minutes</small>
+</div>
+
+<div class="time">
+<span id="seconds">00</span>
+<small>Seconds</small>
+</div>
+
+</div>
+
+<p class="love-text">
+22 November 2026 ❤️<br>
+Waiting for your special day, my love!
+</p>
+
+</div>
+
+<div id="birthday">
+
+<div class="heart">💖</div>
+
+<h1>Happy Birthday Sonai!</h1>
+
+<div class="cake">🎂</div>
+
+<h2>Today Is Your Special Day!</h2>
+
+<img src="couple.jpg" class="photo" alt="Our Memories">
+
+<p class="love-text">
+My Dear Sonai ❤️<br><br>
+
+আজকের দিনটা আমার কাছে অনেক স্পেশাল।
+কারণ আজকের দিনেই পৃথিবীতে এসেছিল
+আমার জীবনের সবচেয়ে প্রিয় মানুষটি।<br><br>
+
+তোমার হাসি যেন কখনো হারিয়ে না যায়।
+তোমার প্রতিটি স্বপ্ন পূরণ হোক।<br><br>
+
+আমি চাই তোমার প্রতিটি জন্মদিনে
+তোমার পাশে থাকতে।<br><br>
+
+Happy Birthday My Princess! 🎂<br>
+I Love You So Much! ❤️
+</p>
+
+<button onclick="playMusic()" id="musicBtn">
+🎵 Play Romantic Music
+</button>
+
+<br>
+
+<button onclick="showLetter()">
+💌 Open Your Love Letter
+</button>
+
+<div id="letter">
+
+<h2>My Love Letter For Sonai ❤️</h2>
+
+My Dearest Sonai,
+
+তোমাকে জীবনে পেয়ে আমি সত্যিই ভাগ্যবান।
+তোমার সঙ্গে কাটানো প্রতিটি মুহূর্ত
+আমার কাছে অনেক মূল্যবান।
+
+আমি জানি না ভবিষ্যতে কী অপেক্ষা করছে,
+কিন্তু আমি চাই আমাদের গল্পটা
+সারা জীবন এভাবেই চলতে থাকুক।
+
+তোমার সুখে আমি হাসতে চাই,
+তোমার দুঃখে তোমার পাশে থাকতে চাই।
+
+তুমি আমার জীবনের খুব স্পেশাল একজন।
+
+শুভ জন্মদিন আমার ভালোবাসা। ❤️
+
+<br><br>
+
+<strong>Forever Yours! 💍</strong>
+
+</div>
+
+<button onclick="showSurprise()">
+🎁 Open Special Surprise
+</button>
+
+<div id="surprise">
+
+<h2>One Promise Forever ❤️</h2>
+
+তুমি শুধু আমার আজকের ভালোবাসা নও,
+তুমি আমার আগামী দিনের স্বপ্ন।
+
+হাজারো মানুষের ভিড়েও
+আমি তোমাকেই বেছে নেব।
+
+I Love You Sonai! ❤️
+
+</div>
+
+</div>
+
+<div class="footer">
+Made With Endless Love ❤️<br>
+Only For My Sonai
+</div>
+
+</div>
+
+<script>
+
+// Birthday: 22 November 2026 at midnight IST
+const birthday = new Date(
+"2026-11-22T00:00:00+05:30"
+).getTime();
+
+let celebrated = false;
+
+function updateCountdown(){
+
+const now = Date.now();
+const distance = birthday-now;
+
+if(distance<=0){
+
+document.getElementById("countdownArea").style.display="none";
+document.getElementById("birthday").style.display="block";
+
+if(!celebrated){
+celebrated=true;
+startFireworks();
+}
+
+return;
+}
+
+document.getElementById("days").innerText=
+Math.floor(distance/86400000);
+
+document.getElementById("hours").innerText=
+Math.floor((distance%86400000)/3600000);
+
+document.getElementById("minutes").innerText=
+Math.floor((distance%3600000)/60000);
+
+document.getElementById("seconds").innerText=
+Math.floor((distance%60000)/1000);
+
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+function showLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+}
+
+// Original romantic melody using Web Audio API
+let audioContext;
+let musicTimer;
+let musicPlaying=false;
+
+function playMusic(){
+
+if(musicPlaying){
+clearInterval(musicTimer);
+musicPlaying=false;
+document.getElementById("musicBtn").innerText="🎵 Play Romantic Music";
+return;
+}
+
+const AudioContext =
+window.AudioContext || window.webkitAudioContext;
+
+if(!AudioContext){
+alert("Audio is not supported in this browser.");
+return;
+}
+
+if(!audioContext){
+audioContext=new AudioContext();
+}
+
+audioContext.resume();
+
+const notes=[
+523.25,659.25,783.99,659.25,
+587.33,698.46,880,698.46,
+523.25,659.25,783.99,1046.50
+];
+
+let index=0;
+
+function playNote(){
+
+if(!musicPlaying)return;
+
+const oscillator=audioContext.createOscillator();
+const gain=audioContext.createGain();
+
+oscillator.type="sine";
+oscillator.frequency.value=notes[index%notes.length];
+
+gain.gain.setValueAtTime(.0001,audioContext.currentTime);
+gain.gain.exponentialRampToValueAtTime(.12,audioContext.currentTime+.05);
+gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+.5);
+
+oscillator.connect(gain);
+gain.connect(audioContext.destination);
+
+oscillator.start();
+oscillator.stop(audioContext.currentTime+.5);
+
+index++;
+}
+
+musicPlaying=true;
+playNote();
+musicTimer=setInterval(playNote,550);
+
+document.getElementById("musicBtn").innerText="⏸ Stop Music";
+}
+
+// Floating hearts and roses
+
+setInterval(()=>{
+
+const items=["❤️","💕","💖","🌹","💗","✨"];
+
+const el=document.createElement("div");
+
+el.className="floating";
+el.innerText=items[Math.floor(Math.random()*items.length)];
+el.style.left=Math.random()*100+"vw";
+el.style.fontSize=(18+Math.random()*20)+"px";
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),7000);
+
+},500);
+
+// Fireworks animation
+
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+let fireworksActive=false;
+
+function resizeCanvas(){
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize",resizeCanvas);
+
+function explode(){
+
+const x=Math.random()*canvas.width;
+const y=Math.random()*canvas.height*.55;
+const colors=["#ff1493","#ffd700","#00ffff","#ffffff","#ff69b4"];
+
+for(let i=0;i<65;i++){
+
+const angle=Math.PI*2*i/65;
+const speed=Math.random()*4+1;
+
+particles.push({
+x,y,
+vx:Math.cos(angle)*speed,
+vy:Math.sin(angle)*speed,
+life:80,
+color:colors[Math.floor(Math.random()*colors.length)]
+});
+
+}
+
+}
+
+function animateFireworks(){
+
+if(!fireworksActive)return;
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach((p,index)=>{
+
+p.x+=p.vx;
+p.y+=p.vy;
+p.vy+=.025;
+p.life--;
+
+ctx.globalAlpha=Math.max(0,p.life/80);
+ctx.fillStyle=p.color;
+ctx.beginPath();
+ctx.arc(p.x,p.y,3,0,Math.PI*2);
+ctx.fill();
+
+if(p.life<=0)particles.splice(index,1);
+
+});
+
+ctx.globalAlpha=1;
+requestAnimationFrame(animateFireworks);
+
+}
+
+function startFireworks(){
+
+fireworksActive=true;
+
+for(let i=0;i<5;i++){
+setTimeout(explode,i*350);
+}
+
+setInterval(explode,1100);
+
+animateFireworks();
+
+}
+
+</script>
+
+</body>
+  </html>
+  
